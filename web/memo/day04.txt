@@ -1,0 +1,36 @@
+[내장객체]
+ JSP ---> Servlet파일로 변환
+	application, session, out, request...
+ 내장객체들은 주로 데이터를 주고받을때 사용됨
+
+1. request
+이전페이지 -> 다음페이지
+
+2. response
+response.sendRedirect("z.jsp");
+요청헤더(==데이터)를 교체해버림
+
+★정보 유지 범위 scope
+  - 정확하게 범위 세팅하는것은 중요!
+  - 장바구니 : localxxx
+	     로그인을 해서 이용하는 경우, 사용자에게  설정
+	     실수로 창을 닫아버림... 
+	     유지가 안되는경우도 있음.  == 브라우저 범위
+
+3. session
+브라우저 단위로 데이터 유지
+ex) 로그인, 장바구니, 커피어플 등에 사용됨
+
+4. application
+서버 scope
+
+
+
+
+☆ 장바구니
+☆ SNS
+
+
+
+
+
