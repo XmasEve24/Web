@@ -24,7 +24,7 @@
 
 	<script>
 		alert("<%=product%>가 장바구니에 추가되었습니다. !");
-		history.go(-1);
+		history.go(-1); // == 뒤로가기
 	</script>
 </body>
 </html>
