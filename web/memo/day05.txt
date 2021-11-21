@@ -42,6 +42,10 @@ class Student{
      lb.setUpw(request.getParameter("upw"));
 %>
 
+<jsp:getProperty property="uid" name="lb"/><br>
+<jsp:getProperty property="upw" name="lb"/>
+lb.getUid()
+lb.getUpw()
 
 
 
