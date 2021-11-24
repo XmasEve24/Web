@@ -24,10 +24,11 @@ public class Test1 {
 		Connection conn = null;
 		Statement stmt = null;
 		try {
-			Class.forName(driver);
+			Class.forName(driver);   // 1
 			
-			conn = DriverManager.getConnection(url,user,password);
-			stmt = conn.createStatement();
+			conn = DriverManager.getConnection(url,user,password); // 2
+			stmt = conn.createStatement(); // 3
+			
 			int ex = stmt.executeUpdate(sqlD);
 			System.out.println(ex+"개 데이터 삭제됨!");
 
