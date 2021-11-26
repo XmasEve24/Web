@@ -21,20 +21,20 @@ public class Test2 {
 	// 3. DB에 저장된 데이터 Java에서 console로 출력
 	public static void main(String[] args) {
 		
-		String url="https://comic.naver.com/index";
+		String url="https://lolchess.gg/meta";
 		// 크롤링대상 url지정
 		
 		try {
 			Document doc = Jsoup.connect(url).get();
-//			System.out.println(doc);
+			System.out.println(doc);
 			
 			Elements ele = doc.select("h6.title");
 //			System.out.println(ele);
 			
-			Iterator<Element> itr = ele.select("a > span").iterator();
-			while(itr.hasNext()) {
-				System.out.println(itr.next().text());
-			}
+//			Iterator<Element> itr = ele.select("a > span").iterator();
+//			while(itr.hasNext()) {
+//				System.out.println(itr.next().text());
+//			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
