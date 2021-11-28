@@ -15,7 +15,7 @@ public class Test {
 		String user="ko";
 		String password="1520";
 		
-		String sql = "select uname,content from test"; // pstmt
+		String sql = "select writer,content from board2"; // pstmt
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		try {

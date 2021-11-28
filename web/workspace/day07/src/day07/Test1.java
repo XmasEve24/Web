@@ -19,7 +19,7 @@ public class Test1 {
 		System.out.print("ют╥б : ");
 		Scanner sc = new Scanner(System.in);
 		int num1 = sc.nextInt();
-		String sqlD="delete from test where a>=" +num1;
+		String sqlD="insert into lol values(" +num1 + "," + 
 		String sqlS="select * from test";
 		Connection conn = null;
 		Statement stmt = null;

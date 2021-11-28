@@ -20,7 +20,7 @@ public class BoardDAO {
 	String sql_selectOne="select * from board where bid=?";
 	String sql_insert="insert into board values((select nvl(max(bid),0)+1 from board),?,?,?)";
 	String sql_delete="delete from board where bid=?";
-	String sql_update="update board set title=?, writer=? content=? where bid=?";
+	String sql_update="update board set title=?, writer=?, content=? where bid=?";
 	
 	public ArrayList<BoardVO> selectAll(){
 		conn=JDBCUtil.connect();
@@ -37,6 +37,7 @@ public class BoardDAO {
 				vo.setWriter(rs.getString("writer"));
 			
 				datas.add(vo);
+				System.out.println(vo);
 			}
 			rs.close();
 		} catch (SQLException e) {
@@ -61,6 +62,7 @@ public class BoardDAO {
 				data.setContent(rs.getString("content"));
 				data.setTitle(rs.getString("title"));
 				data.setWriter(rs.getString("writer"));
+				System.out.println(data);
 			}
 			rs.close();
 		} catch (SQLException e) {
@@ -92,16 +94,17 @@ public class BoardDAO {
 		conn=JDBCUtil.connect();
 		try {
 			pstmt=conn.prepareStatement(sql_update);
-			pstmt.setString(1, vo.getWriter());
-			pstmt.setString(2, vo.getTitle());
+			pstmt.setString(1, vo.getTitle());
+			pstmt.setString(2, vo.getWriter());
 			pstmt.setString(3, vo.getContent());
+			pstmt.setInt(4, vo.getBid());
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
 		} finally {
-			JDBCUtil.disconnect(pstmt, conn);
+			JDBCUtil.disconnect(pstmt,conn);
 		}
 		return true;
 	}
