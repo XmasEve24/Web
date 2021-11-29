@@ -1,10 +1,6 @@
 package crawling;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -52,30 +48,8 @@ public class Craw {
 			gold_temp = tmp.get(i).text();
 			dl.add(new DeckVO(deck_temp, champ_temp, gold_temp));
 		}
+		System.out.println(dl.toString());
 
-		
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-
-		String sql_selectAll = "select * from lol";
-		String sql_insert = "insert into lol values(?,?,?)";
-		conn = JDBCUtil.connect();
-
-		try {
-			for(DeckVO vo : dl) {
-			pstmt = conn.prepareStatement(sql_insert);
-			pstmt.setString(1, vo.getDeck());
-			pstmt.setString(2, vo.getChamp());
-			pstmt.setString(3, vo.getGold());
-			pstmt.executeUpdate();
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			JDBCUtil.disconnect(pstmt, conn);
-		}
-		
 	}
 
 }
