@@ -29,7 +29,6 @@ public class CalcServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request,response);
 	}
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -37,12 +36,10 @@ public class CalcServlet extends HttpServlet {
 		int num1, num2, res;
 		String op;
 		
-		
 		num1=Integer.parseInt(request.getParameter("num1"));
 		num2=Integer.parseInt(request.getParameter("num2"));
 		op=request.getParameter("op");
 		res=calc(num1,num2,op);
-		
 		
 		response.setContentType("text/html; charset=UTF-8");
 		
