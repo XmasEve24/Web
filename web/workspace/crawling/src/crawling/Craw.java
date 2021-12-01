@@ -27,17 +27,6 @@ public class Craw {
 
 		try {
 			doc = Jsoup.connect(url).get();
-
-//			Iterator<Element> itr_deck = ele.select("div.guide-meta__deck > div.guide-meta__deck__column.name.mr-3").iterator();
-//			Iterator<Element> itr_champ = ele.select("div.guide-meta__deck > div.guide-meta__deck__column.champions.mr-2  ").iterator();
-//			Iterator<Element> itr_gold = ele.select("div.guide-meta__deck > div.guide-meta__deck__column.cost.mr-2").iterator();
-//			Iterator<Element> itr_item = ele.select("div.guide-meta__deck > div.tft-champion-box > div.tft-items").iterator();
-//			while(itr_deck.hasNext()) {
-//				System.out.println("√ﬂ√µµ¶: " + itr_deck.next().text());
-//				System.out.println("µ¶±∏º∫: " + itr_champ.next().text());
-//				System.out.println("« ø‰ ∞ÒµÂ: " + itr_gold.next().text());
-//				System.out.println("√ﬂ√µ æ∆¿Ã≈€: " + itr_item.next().text());
-//			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -46,36 +35,59 @@ public class Craw {
 		for (int i = 0; i < 15; i++) {
 			tmp = ele.select("div.guide-meta__deck > div.guide-meta__deck__column.name.mr-3");
 			deck_temp = tmp.get(i).text();
-			tmp = ele.select("div.guide-meta__deck > div.guide-meta__deck__column.champions.mr-2");
+			for(int j=0; j< deck_temp.length(); j++) {
+				if(deck_temp.charAt(j)=='U' && deck_temp.charAt(j+1)=='P') {
+					int idx_U = deck_temp.indexOf("U");
+					deck_temp = deck_temp.substring(0,idx_U);
+				}else if(deck_temp.charAt(j)=='N' && deck_temp.charAt(j+1)=='E') {
+					int idx_N = deck_temp.indexOf("N");
+					deck_temp = deck_temp.substring(0,idx_N);
+				}
+			}
+			
+			tmp = ele.select("div.guide-meta__deck__column.champions.mr-2");
 			champ_temp = tmp.get(i).text();
+			System.out.println(champ_temp);
 			tmp = ele.select("div.guide-meta__deck > div.guide-meta__deck__column.cost.mr-2");
 			gold_temp = tmp.get(i).text();
-			dl.add(new DeckVO(deck_temp, champ_temp, gold_temp));
+//			dl.add(new DeckVO(deck_temp, champ_temp, gold_temp));
 		}
-
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-
-		String sql_selectAll = "select * from lol";
-		String sql_insert = "insert into lol values(?,?,?)";
-		conn = JDBCUtil.connect();
-
-		try {
-			for(DeckVO vo : dl) {
-			pstmt = conn.prepareStatement(sql_insert);
-			pstmt.setString(1, vo.getDeck());
-			pstmt.setString(2, vo.getChamp());
-			pstmt.setString(3, vo.getGold());
-			pstmt.executeUpdate();
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			JDBCUtil.disconnect(pstmt, conn);
-		}
 		
+//		String sql_insert = "insert into lol values(?,?,?)";
+//		conn = JDBCUtil.connect();
+//
+//		try {
+//			for(DeckVO vo : dl) {
+//			pstmt = conn.prepareStatement(sql_insert);
+//			pstmt.setString(1, vo.getDeck());
+//			pstmt.setString(2, vo.getChamp());
+//			pstmt.setString(3, vo.getGold());
+//			pstmt.executeUpdate();
+//			}
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} finally {
+//			JDBCUtil.disconnect(pstmt, conn);
+//		}
+//		
+//		conn = JDBCUtil.connect();
+//		String sql_selectAll = "select * from lol";
+//		try {
+//			pstmt = conn.prepareStatement(sql_selectAll);
+//			ResultSet rs=pstmt.executeQuery();
+//			while(rs.next()) {
+//				System.out.println("√ﬂ√µµ¶: " + rs.getString("deck") + "\nµ¶±∏º∫ √®««æ: " + rs.getString("champ") + "\n« ø‰ ∞ÒµÂ: " + rs.getString("gold") + "\n"  );
+//			}
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} finally {
+//			JDBCUtil.disconnect(pstmt, conn);
+//		}
 	}
 
 }
