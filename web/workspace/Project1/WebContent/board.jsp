@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:useBean id="data" class="model.BoardVO" scope="request" />
+<jsp:useBean id="data" class="model.board.BoardVO" scope="request" />
 <!DOCTYPE html>
 <html>
 <head>

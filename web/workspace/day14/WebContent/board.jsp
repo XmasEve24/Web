@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,6 +20,9 @@
 </script>
 </head>
 <body>
+
+<c:choose>
+<c:when test="${data !=null}">
 
 <form action="controller.jsp" method="post" name="formA">
 <input type="hidden" name="action" value="update">
@@ -41,6 +45,11 @@
    </tr>
 </table>
 </form>
+</c:when>
+<c:otherwise>
+	<h3>출력할 데이터가 없습니다</h3>
+</c:otherwise>
+</c:choose>
 <hr>
 <a href="controller.jsp?action=main">메인페이지로 돌아가기</a>
 

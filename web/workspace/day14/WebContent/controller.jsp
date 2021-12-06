@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.*,model.board.*"%>
-<jsp:useBean id="dao" class="model.board.BoardDAO"/>
+<jsp:useBean id="dao" class="model.member.BoardDAO"/>
 <jsp:useBean id="vo" class="model.board.BoardVO"/>
 <<jsp:setProperty property="*" name="vo"/>
 <%
@@ -15,8 +15,18 @@
 	}
 	else if(action.equals("board")){
 		BoardVO data = dao.selectOne(vo);
-		request.setAttribute("data", data);
-		pageContext.forward("board.jsp");
+		System.out.println("로그: " + data);
+		
+		/* if(data==null) {
+			response.sendRedirect("controller.jsp?action=main");
+		}
+		else { */
+			request.setAttribute("data", data);
+			pageContext.forward("board.jsp");
+		/* } */
+		// 1. 사용자가 controller.jsp에게 url요청
+		// 2. action파라미터 값으로 board줌
+		// 3. bid=9 ---> setP액션에 의해 vo에 저장됨
 	}
 	else if(action.equals("insert")){
 		if(dao.insert(vo)){
