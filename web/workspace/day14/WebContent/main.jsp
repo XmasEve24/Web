@@ -21,5 +21,6 @@
 </table>
 
 <a href="form.jsp">글작성하기</a>
+
 </body>
 </html>

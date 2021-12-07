@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.ArrayList,model.board.BoardVO" %>
+    pageEncoding="UTF-8" import="java.util.ArrayList,model.BoardVO" %>
 <jsp:useBean id="datas" scope="request" class="java.util.ArrayList" />
 <!DOCTYPE html>
 <html>

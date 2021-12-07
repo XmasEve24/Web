@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.ArrayList,model.board.BoardVO" errorPage="error/error.jsp"%>
+    pageEncoding="UTF-8" import="java.util.ArrayList,model.BoardVO" errorPage="error/error.jsp"%>
 <%
 	request.setCharacterEncoding("UTF-8");
 %>
-<jsp:useBean id="dao" class="model.board.BoardDAO"/>
-<jsp:useBean id="vo" class="model.board.BoardVO"/>
+<jsp:useBean id="dao" class="model.BoardDAO"/>
+<jsp:useBean id="vo" class="model.BoardVO"/>
 <jsp:setProperty property="*" name="vo"/>
 <%
 	// index 컨트롤러에게 main페이지 요청

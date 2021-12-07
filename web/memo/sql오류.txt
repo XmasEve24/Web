@@ -1,0 +1,2 @@
+ORA-00933: SQL command not properly ended 
+sql 구문 문제

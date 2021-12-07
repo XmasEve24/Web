@@ -21,9 +21,13 @@ create table reply(
 	constraint board_fk foreign key(bid) references board(bid) on delete cascade
 ); 
 
-insert into board values(1, '작성자','게시글내용',0)
+insert into board values(1, '작성자1','게시글내용1',0);
+insert into board values(2, '작성자2','게시글내용2',0);
+insert into board values(3, '작성자3','게시글내용3',0);
 select * from board;
-insert into reply values(1,1,'작성자','댓글내용');
+insert into reply values(1,1,'작성자1','댓글내용1');
+insert into reply values(2,1,'작성자2','댓글내용2');
+insert into reply values(3,3,'작성자3','댓글내용3');
 select * from reply;
 drop table board;
-delete from board where bid=1;
+select * from board order by bid desc; 

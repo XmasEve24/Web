@@ -44,50 +44,48 @@ public class Craw {
 					deck_temp = deck_temp.substring(0,idx_N);
 				}
 			}
-			
 			tmp = ele.select("div.guide-meta__deck__column.champions.mr-2");
 			champ_temp = tmp.get(i).text();
-			System.out.println(champ_temp);
 			tmp = ele.select("div.guide-meta__deck > div.guide-meta__deck__column.cost.mr-2");
 			gold_temp = tmp.get(i).text();
-//			dl.add(new DeckVO(deck_temp, champ_temp, gold_temp));
+			dl.add(new DeckVO(deck_temp, champ_temp, gold_temp));
 		}
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		
-//		String sql_insert = "insert into lol values(?,?,?)";
-//		conn = JDBCUtil.connect();
-//
-//		try {
-//			for(DeckVO vo : dl) {
-//			pstmt = conn.prepareStatement(sql_insert);
-//			pstmt.setString(1, vo.getDeck());
-//			pstmt.setString(2, vo.getChamp());
-//			pstmt.setString(3, vo.getGold());
-//			pstmt.executeUpdate();
-//			}
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} finally {
-//			JDBCUtil.disconnect(pstmt, conn);
-//		}
-//		
-//		conn = JDBCUtil.connect();
-//		String sql_selectAll = "select * from lol";
-//		try {
-//			pstmt = conn.prepareStatement(sql_selectAll);
-//			ResultSet rs=pstmt.executeQuery();
-//			while(rs.next()) {
-//				System.out.println("ÃßÃµµ¦: " + rs.getString("deck") + "\nµ¦±¸¼º Ã¨ÇÇ¾ð: " + rs.getString("champ") + "\nÇÊ¿ä °ñµå: " + rs.getString("gold") + "\n"  );
-//			}
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} finally {
-//			JDBCUtil.disconnect(pstmt, conn);
-//		}
+		String sql_insert = "insert into lol values(?,?,?)";
+		conn = JDBCUtil.connect();
+
+		try {
+			for(DeckVO vo : dl) {
+			pstmt = conn.prepareStatement(sql_insert);
+			pstmt.setString(1, vo.getDeck());
+			pstmt.setString(2, vo.getChamp());
+			pstmt.setString(3, vo.getGold());
+			pstmt.executeUpdate();
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.disconnect(pstmt, conn);
+		}
+		
+		conn = JDBCUtil.connect();
+		String sql_selectAll = "select * from lol";
+		try {
+			pstmt = conn.prepareStatement(sql_selectAll);
+			ResultSet rs=pstmt.executeQuery();
+			while(rs.next()) {
+				System.out.println("ÃßÃµµ¦: " + rs.getString("deck") + "\nµ¦±¸¼º Ã¨ÇÇ¾ð: " + rs.getString("champ") + "\nÇÊ¿ä °ñµå: " + rs.getString("gold") + "\n"  );
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.disconnect(pstmt, conn);
+		}
 	}
 
 }

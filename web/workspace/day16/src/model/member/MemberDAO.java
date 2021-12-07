@@ -4,93 +4,56 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
-import model.board.BoardVO;
 import model.common.JDBCUtil;
 
 public class MemberDAO {
-
-	Connection conn = null;
-	PreparedStatement pstmt = null;
+	Connection conn;
+	PreparedStatement pstmt;
+	ResultSet rs;
 	
-	String sql_selectAll = "select * from board";
-	String sql_selectOne = "select * from board where = bid?";
-	String sql_insert = "insert into board values((select nvl(max(idx),0)+1 from board),?,?,?)";
-	String sql_update = "delete from board where idx=?";
-	String sql_delete = "update board set title=?, uname=?, content where idx=?";
+	String sql_insert="insert into member values(?,?,?)";
+	String sql_selectOne="select * from member where mid=?";
 	
-	public ArrayList<BoardVO> selectAll() {
-		conn = JDBCUtil.connect();
-		ArrayList<BoardVO> datas = new ArrayList<BoardVO>();
+	public boolean insert(MemberVO vo) {
+		conn=JDBCUtil.connect();
 		try {
-			ResultSet rs = pstmt.executeQuery();
-			pstmt = conn.prepareStatement(sql_selectAll);
-			while(rs.next()) {
-				BoardVO vo = new BoardVO();
-				
-				
+			pstmt=conn.prepareStatement(sql_insert);
+			pstmt.setString(1, vo.getMid());
+			pstmt.setString(2, vo.getMpw());
+			pstmt.setString(3, vo.getMname());
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("MemberDAO insert()에서 문제발생!");
+			e.printStackTrace();
+			return false;
+		} finally {
+			JDBCUtil.disconnect(pstmt, conn);
+		}
+		return true;
+	}
+	
+	public boolean selectOne(MemberVO vo) {
+		// 로그인 성공여부를 반환하는 메서드
+		conn=JDBCUtil.connect();
+		try {
+			pstmt=conn.prepareStatement(sql_selectOne);
+			pstmt.setString(1, vo.getMid());
+			rs=pstmt.executeQuery();
+			if(rs.next()){
+				System.out.println("해당하는 id 존재");
+				if(rs.getString("mpw").equals(vo.getMpw())) {
+					System.out.println("pw 일치");
+					return true;
+				}
 			}
-			rs.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			JDBCUtil.disconnect(pstmt, conn);
-		}
-		return datas;
-	}
-	public BoardVO selectOne(BoardVO vo) {
-		conn = JDBCUtil.connect();
-		BoardVO data = null;
-		try {
-			pstmt = conn.prepareStatement(sql_selectOne);
-			ResultSet rs = pstmt.executeQuery();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			JDBCUtil.disconnect(pstmt, conn);
-		}
-		return data;
-	}
-	public boolean insert(BoardVO vo) {
-		conn = JDBCUtil.connect();
-		try {
-			pstmt = conn.prepareStatement(sql_insert);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+			System.out.println("MemberDAO selectOne()에서 문제발생!");
 			e.printStackTrace();
 			return false;
 		} finally {
 			JDBCUtil.disconnect(pstmt, conn);
 		}
-		return true;
-	}
-	public boolean update(BoardVO vo) {
-		conn = JDBCUtil.connect();
-		try {
-			pstmt = conn.prepareStatement(sql_update);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return false;
-		} finally {
-			JDBCUtil.disconnect(pstmt, conn);
-		}
-		return true;
-	}
-	public boolean delete(BoardVO vo) {
-		conn = JDBCUtil.connect();
-		try {
-			pstmt = conn.prepareStatement(sql_delete);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return false;
-		} finally {
-			JDBCUtil.disconnect(pstmt, conn);
-		}
-		return true;
+		return false;
 	}
 }
