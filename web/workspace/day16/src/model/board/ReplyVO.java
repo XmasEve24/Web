@@ -5,6 +5,7 @@ public class ReplyVO {
 	private int bid;
 	private String mid;
 	private String rmsg;
+	
 	public int getRid() {
 		return rid;
 	}

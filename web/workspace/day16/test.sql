@@ -20,7 +20,7 @@ create table reply(
 	rmsg varchar(30) not null,
 	constraint board_fk foreign key(bid) references board(bid) on delete cascade
 ); 
-
+select * from member;
 insert into board values(1, '작성자1','게시글내용1',0);
 insert into board values(2, '작성자2','게시글내용2',0);
 insert into board values(3, '작성자3','게시글내용3',0);
