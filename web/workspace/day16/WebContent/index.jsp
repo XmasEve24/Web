@@ -3,3 +3,4 @@
 <%
 	response.sendRedirect("board_controller.jsp?action=main");
 %>
+

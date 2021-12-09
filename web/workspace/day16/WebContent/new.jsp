@@ -14,12 +14,12 @@
 		<tr>
 			<td>아이디</td>
 			<td><input type="text" name="mid" required></td>
-			<!-- 중복확인 비동기처리(페이지전환없이) ajax  -->
+			<!-- 중복확인 비동기처리(페이지전환없이) ajax -->
 		</tr>
 		<tr>
 			<td>비밀번호</td>
 			<td><input type="password" name="mpw" required></td>
-			<!-- 비밀번호 이중체크, 보안강도검사 비동기처리 유효성검사(정규식) -->
+			<!-- 비밀번호 이중체크,보안강도검사  비동기처리 유효성검사(정규식) -->
 		</tr>
 		<tr>
 			<td>이름</td>
