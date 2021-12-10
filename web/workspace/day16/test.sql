@@ -37,3 +37,4 @@ insert into reply values(4,3,'작성자3','댓글내용4');
 select * from reply;
 drop table board;
 select * from board order by bid desc; 
+select * from member;
