@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <%
+	//pageContext.forward("controller.jsp?action=main");
 	pageContext.forward("controller.do");
 %>
 

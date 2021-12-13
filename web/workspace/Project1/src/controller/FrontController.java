@@ -27,16 +27,23 @@ public class FrontController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		actionDO(request,response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		actionDO(request,response);
 	}
 
+	private void actionDO(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// 1. ¿äÃ»À» ÆÄ¾Ç
+		String uri = request.getRequestURI();
+		System.out.println(uri);
+		String cp = request.getContextPath();
+		System.out.println(cp);
+		String command = uri.substring(cp.length());
+		System.out.println(command);
+	}
 }
