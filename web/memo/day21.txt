@@ -1,0 +1,31 @@
+트랜잭션
+ DB에서의 작업의 단위 or 관련된 작업들을 하나로 묶는 것
+ if문으로 비즈니스메서드의 수행상태를 확인, 
+ exception을 발생시키거나 여러개의 조건문을 활용하여 해결도 가능
+ -> commit, rollback등을 활용하여 처리하는것이 일반적!
+    == 트랜잭션 완료   == 트랜잭션 취소
+ => JDBC 등 다양한 DB연동환경에서 자동commit모드가 지원됨
+ 1) 자동 commit모드를 해제
+ 2) 액션(비즈니스메서드)들을 수행
+ 3) 일련의 액션들이 모두 수행되면 commit()호출 
+ 4) 자동commit모드로 다시 연결 
+
+
+★★★★★★★
+Controller Part2
+★★★★★★★
+
+.java <- VO DAO M
+.jsp <- V
+controller.jsp <- C
+POJO 경량의 자바 객체: VO DAO JDBCUtil
+	.jsp에서 C작업하기때문에 서블릿에서 작업하는것이다
+	로직변화->재컴파일->서버 부담
+	C 흐름제어 + M연동, 로직
+	 서블릿		POJO
+	[FrontController]를 활용함
+	 == MVC2 => Spring에서 사용됨
+	
+
+
+

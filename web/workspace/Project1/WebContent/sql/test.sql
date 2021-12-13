@@ -10,3 +10,6 @@ create table board(
 select * from board;
 insert into board values(1,'작성자','제목','내용');
 insert into board values(2,'티모','탑갈사람?','버성농장');
+
+drop table board;
+drop table reply;

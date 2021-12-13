@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+    <form>
+        uname : inputT
+        uid : inputT
+        password : inputT
+        method : get
+        action : member_main.hsp
+    </form>
+ -->
+<form action="member_main.jsp" method="get">
+    <table border="1">
+        <tr>
+            <td>이름</td>
+            <td><input type="text" name="uname"></td> <!-- uname : values -->
+        </tr>
+        <tr>
+            <td>아이디</td>
+            <td><input type="text" name="uid"><td> <!-- uid : values -->
+        </tr>
+        <tr>
+            <td>비밀번호</td>
+            <td><input type="password" name="password"></td> <!-- password : values -->
+        </tr>
+        <tr>
+            <td colspan="2" align="right">
+                <input type="submit" value="제출하기">
+            </td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>
