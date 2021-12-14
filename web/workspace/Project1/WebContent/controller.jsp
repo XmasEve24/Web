@@ -20,9 +20,9 @@
 		// 1. M에게서 데이터를 확보
 		ArrayList<BoardVO> datas = dao.selectAll();
 		// 2. V한테 데이터를 전달
-		request.setAttribute("datas", datas);
+		request.setAttribute("datas", datas); // 데이터를 보내는지에대한 여부
 		// 메인페이지 보여줘
-		pageContext.forward("main.jsp");
+		pageContext.forward("main.jsp"); // 어디로 보내는지에대한 페이지정보
 		
 	} else if(action.equals("board")) {
 		// 상세페이지 보여줘
@@ -35,7 +35,7 @@
 	} else if (action.equals("insert")) {
 		System.out.println(vo); // ★★★★★
 		if (dao.insert(vo)) {
-	response.sendRedirect("controller.jsp?action=main");
+		response.sendRedirect("controller.jsp?action=main");
 	// C(insert) -> main.jsp버튼누르는 액션(조회액션) 
 		}
 		throw new Exception("insert 수행중에 오류발생");

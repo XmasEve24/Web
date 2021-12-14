@@ -3,6 +3,6 @@
 
 <%
 	//pageContext.forward("controller.jsp?action=main");
-	pageContext.forward("controller.do");
+	pageContext.forward("main.do");
 %>
 
