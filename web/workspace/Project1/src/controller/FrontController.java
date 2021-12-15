@@ -76,6 +76,20 @@ public class FrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
+		else if(command.equals("/update.do")) {
+			try {
+				forward = new UpdateAction().execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		else if(command.equals("/delete.do")) {
+			try {
+				forward = new DeleteAction().execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		
 		if(forward!=null) { // 예외등이 발생하면 null일수도있음
 			if(forward.isRedirect()) { // 널포인터익셉션 발생가능성있음

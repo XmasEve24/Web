@@ -22,9 +22,6 @@ a:hover {
 .b {
 	background-color: lightblue;
 }
-.h {
-	
-}
 </style>
 <script type="text/javascript">
 	function newMember(){
@@ -43,24 +40,15 @@ a:hover {
 </ul>
 
 <hr>
-<div class="h">
-<form action="board_controller.jsp?action=insertB" method="post">
-<%-- <c:choose>
-	<c:when test="${mid != null}">
-		<input type="hidden" name="mid" value="${mid}">
-		<input type="text" name="msg">
-		<input type="submit" value="글 등록">
-	</c:when>
-	<c:otherwise>
-		<input type="text" name="msg" disabled="disabled" value="로그인후에 글 등록이 가능합니다!" size="40">
-	</c:otherwise>
-</c:choose> --%>
+<div class="b">
+<br>
+<form action="insertB.do" method="post">
 	<input type="hidden" name="mid" value="${mid}">
-	<mytag:write type="board"/>
+	<mytag:write type="board" />
 </form>
+<br>
 </div>
 <hr>
-
 
 <c:forEach var="v" items="${datas}">
 	<div class="a">
@@ -68,10 +56,10 @@ a:hover {
 		${bvo.mid}님의 글: ${bvo.msg} [좋아요: ${bvo.favcnt} | 댓글: ${bvo.rcnt}] <mytag:removeB rmid="${bvo.mid}" bid="${bvo.bid}" />
 		<div class="b">
 			<br>
-			<form action="board_controller.jsp?action=insertR&cnt=${cnt}" method="post">
+			<form action="insertR.do?cnt=${cnt}" method="post">
 				<input type="hidden" name="mid" value="${mid}">
 				<input type="hidden" name="bid" value="${bvo.bid}">
-				<mytag:write type="reply"/>
+				<mytag:write type="reply" />
 			</form>
 			<br>
 			<c:forEach var="vv" items="${v.rdatas}">
@@ -82,7 +70,7 @@ a:hover {
 	<br>
 </c:forEach>
 
-<a href="board_controller.jsp?action=main&cnt=${cnt+2}">[더보기]</a>
+<a href="main.do?cnt=${cnt+2}">[더보기]</a>
 
 </body>
 </html>

@@ -1,44 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.ArrayList,model.BoardVO" %>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<jsp:useBean id="datas" scope="request" class="java.util.ArrayList" />
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>메인 페이지</title>
-<link rel="stylesheet" href="css/style.css" type="text/css"/>
+<link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
 <body>
-<c:if test=""></c:if>
-<%
-   	  //System.out.println("datas상태: " +datas);
-   	  //System.out.println("datas상태: " + datas.size());
-   	  
-   	  if(datas.size()==0){
-   		  %>
-			<img alt="티모 이모티콘"  src="img/puppy.jpg" width=300px>  		  
-   		  <%
-   	  }else{
-   		  %>
+
 <table border="1">
-   <tr>
-      <th>글 번호</th><th>글 제목</th><th>작성자</th>
-   </tr>
-   <%
-      for(BoardVO v:(ArrayList<BoardVO>)datas){
-   %>
-   <tr>
-      <td><a href="controller.jsp?action=board&bid=<%=v.getBid()%>"><%=v.getBid()%></a></td><td><%=v.getTitle()%></td><td><%=v.getWriter()%></td>
-   </tr>
-   <%
-      
-      }
-   %>
+	<tr>
+		<th>글 번호</th><th>글 제목</th><th>작성자</th>
+	</tr>
+	<c:forEach var="v" items="${datas}">
+	<tr>
+		<td><a href="board.do?bid=${v.bid}">${v.bid}</a></td><td>${v.title}</td><td>${v.writer}</td>
+	</tr>
+	</c:forEach>
 </table>
-<%
-   	  }
-%>
+
 <hr>
 
 <a href="form.jsp">글 작성하기</a>
