@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%-- <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="model.board.*,java.util.*"%>
 <jsp:useBean id="dao" class="model.board.BoardDAO" />
 <jsp:useBean id="vo" class="model.board.BoardVO" />
@@ -63,4 +63,4 @@
 			System.out.println("insertR 액션에서 문제발생!");
 		}
 	}	
-%>
+%> --%>

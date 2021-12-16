@@ -28,6 +28,9 @@ public class LoginAction implements Action{
 		}
 		else {
 			response.setContentType("text/html; charset=UTF-8");
+			// html, CSS, JS 변경했는데도 변화가없을때
+			// -> 기존데이터를 참고해서 화면을 구성
+			// => 인터넷기록을 삭제
 			PrintWriter out=response.getWriter();
 			out.println("<script>alert('로그인 실패!');history.go(-1);</script>");
 		}

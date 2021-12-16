@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%-- <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <jsp:useBean id="mdao" class="model.member.MemberDAO" />
 <jsp:useBean id="mvo" class="model.member.MemberVO" />
@@ -31,4 +31,4 @@
 		session.removeAttribute("mid"); // 세션에 저장된 값을 제거
 		response.sendRedirect("board_controller.jsp?action=main");
 	}
-%>
+%> --%>

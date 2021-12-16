@@ -17,13 +17,10 @@ public class InsertBAction implements Action{
 		vo.setMid(request.getParameter("mid"));
 		vo.setMsg(request.getParameter("msg"));
 		dao.insert(vo);
-		
-//		ArrayList<BoardVO> datas = dao.se; 
-//		request.setAttribute("datas", datas);
-		
+	
 		ActionForward forward = new ActionForward();
 		forward.setPath("main.do");
-		forward.setRedirect(true);
+		forward.setRedirect(false);
 		return forward;
 	}
 

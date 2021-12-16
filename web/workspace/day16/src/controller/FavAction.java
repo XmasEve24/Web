@@ -4,18 +4,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.board.BoardDAO;
-import model.board.ReplyVO;
+import model.board.BoardVO;
 
-public class InsertRAction implements Action{
+public class FavAction implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		BoardDAO dao = new BoardDAO();
-		ReplyVO vo = new ReplyVO();
+		BoardVO vo = new BoardVO();
 		vo.setBid(Integer.parseInt(request.getParameter("bid")));
-		vo.setMid(request.getParameter("mid"));
-		vo.setRmsg(request.getParameter("rmsg"));
-		dao.insertR(vo);	
+		dao.update(vo);
 		
 		String cnt=request.getParameter("cnt");
 		int mcnt=2; 

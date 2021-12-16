@@ -6,18 +6,17 @@ import javax.servlet.http.HttpServletResponse;
 import model.board.BoardDAO;
 import model.board.ReplyVO;
 
-public class InsertRAction implements Action{
+public class DeleteRAction implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		BoardDAO dao = new BoardDAO();
 		ReplyVO vo = new ReplyVO();
-		vo.setBid(Integer.parseInt(request.getParameter("bid")));
-		vo.setMid(request.getParameter("mid"));
-		vo.setRmsg(request.getParameter("rmsg"));
-		dao.insertR(vo);	
+		vo.setRid(Integer.parseInt(request.getParameter("rid")));
+		dao.deleteR(vo);
 		
 		String cnt=request.getParameter("cnt");
+		
 		int mcnt=2; 
 		if(cnt!=null){
 			mcnt=Integer.parseInt(cnt);
@@ -29,6 +28,7 @@ public class InsertRAction implements Action{
 		forward.setRedirect(false);
 		
 		return forward;
+		
 	}
 
 }

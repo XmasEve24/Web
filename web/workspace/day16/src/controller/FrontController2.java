@@ -45,7 +45,12 @@ public class FrontController2 extends HttpServlet {
 		
 		ActionForward forward=null;
 		if(command.equals("/new.mem")) {
-			
+			try {
+				forward = new NewAction().execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		else if(command.equals("/login.mem")) {
 			try {
