@@ -24,6 +24,4 @@ public class BoardSet {
 	public String toString() {
 		return "BoardSetÈ®ÀÎ [board=" + board + ", rdatas=" + rdatas + "]";
 	}
-	
-	
 }
