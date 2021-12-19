@@ -35,6 +35,6 @@ insert into reply values(2,1,'작성자2','댓글내용2');
 insert into reply values(3,3,'작성자3','댓글내용3');
 insert into reply values(4,3,'작성자3','댓글내용4');
 select * from reply;
-drop table board;
+drop table member;
 select * from board order by bid desc; 
 select * from member;
