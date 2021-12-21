@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:p="http://www.springframework.org/schema/p"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:p="http://www.springframework.org/schema/p"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+	
+	<context:component-scan base-package="test" />
+	<bean class="test.AppleWatch" />
+	
+	
+	
+	
 	
 	<!-- init-method="initMethod" destroy-method="destroyMethod" --> 
 	<!-- <constructor-arg ref="smartWatch" />
@@ -12,10 +21,24 @@
 		<property name="uname" value="카이사" />
 	</bean>  -->
 	
-	<bean class="test.IPhone" id="iPhone" p:watch-ref="smartWatch" p:uname="카이사" />
+	<!-- <bean class="test.IPhone" id="iPhone" p:watch-ref="smartWatch" p:uname="카이사" />
 	<bean class="test.AppleWatch" id="appleWatch" />
 	<bean class="test.SmartWatch" id="smartWatch" />
 	
 	<bean class="test.GalaxyPhone" id="galaxyPhone" lazy-init="true" scope="prototype"/> 
 		
+	<bean id="ct" class="test.CollectionTest">
+		<property name="members">
+			<map>
+				<entry>
+					<key><value>티모</value></key>
+					<value>010-1111-2222</value>
+				</entry>
+				<entry>
+					<key><value>아리</value></key>
+					<value>010-1234-5678</value>
+				</entry>
+			</map>
+		</property>
+	</bean>	 -->
 </beans>

@@ -1,5 +1,8 @@
 package test;
 
+import org.springframework.stereotype.Component;
+
+//@Component("smartWatch")
 public class SmartWatch implements Watch{
 
 	public SmartWatch() {

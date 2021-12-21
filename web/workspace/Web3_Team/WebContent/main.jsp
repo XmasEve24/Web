@@ -84,7 +84,7 @@ http://www.tooplate.com/view/2082-pure-mix
                         <li><a href="main.jsp">Home</a></li>
                         <li><a href="login.jsp"><mytag:login/></a></li>
                         <li><a href="about.html">About</a></li>
-                        <li><a href="blog.html">Board</a></li>
+                        <li><a href="board.jsp">Board</a></li>
                         <li><a href="contact.html">Contact</a></li>
                         <li><a href="table.html">Contact Msg</a></li>
                       </ul>

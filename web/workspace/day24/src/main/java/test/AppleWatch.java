@@ -1,5 +1,8 @@
 package test;
 
+import org.springframework.stereotype.Component;
+
+//@Component("appleWatch")
 public class AppleWatch implements Watch{
 	public AppleWatch() {
 		System.out.println("局敲况摹 按眉积己");

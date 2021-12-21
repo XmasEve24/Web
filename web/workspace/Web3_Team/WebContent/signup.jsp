@@ -3,7 +3,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-  	<title>Sign Up 07</title>
+  	<title>회원가입</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -29,11 +29,15 @@
 						<form action="#" class="signup-form">
 		      		<div class="form-group mb-3">
 		      			<label class="label" for="name">Full Name</label>
-		      			<input type="text" class="form-control" placeholder="John Doe">
+		      			<input type="text" class="form-control" placeholder="Name">
 		      		</div>
 		      		<div class="form-group mb-3">
 		      			<label class="label" for="email">Email Address</label>
-		      			<input type="text" class="form-control" placeholder="johndoe@gmail.com">
+		      			<input type="text" class="form-control" placeholder="Email">
+		      		</div>
+		      		<div class="form-group mb-3">
+		      			<label class="label" for="id">ID</label>
+		      			<input type="text" class="form-control" placeholder="ID">
 		      		</div>
 	            <div class="form-group mb-3">
 	            	<label class="label" for="password">Password</label>

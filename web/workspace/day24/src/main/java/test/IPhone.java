@@ -1,25 +1,15 @@
 package test;
 
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Component;
+
+//@Component("iPhone") // == <bean class="" id="">등록과 같은 설정!!!  
+// IPhone iPhone = new IPhone(); => 기본생성자가 존재해야함!!!
 public class IPhone implements Phone{
-	private Watch watch;
-	private String uname;
+	@Resource(name="appleWatch")
+	private Watch watch; // -> IoC가 구현된 코드!
 	
-	public Watch getWatch() {
-		return watch;
-	}
-
-	public void setWatch(Watch watch) {
-		this.watch = watch;
-	}
-
-	public String getUname() {
-		return uname;
-	}
-
-	public void setUname(String uname) {
-		this.uname = uname;
-	}
-
 	public IPhone() {
 		System.out.println("아이폰생성자1");
 	}
