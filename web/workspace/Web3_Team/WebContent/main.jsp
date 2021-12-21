@@ -18,7 +18,7 @@ http://www.tooplate.com/view/2082-pure-mix
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="keywords" content="">
 	<meta name="description" content="">
-
+<link rel="stylesheet" type="text/css" href="css/main.css">
 	<!-- Site title
    ================================================== -->
 	<title>Pure Mix - HTML CSS Template</title>
@@ -69,8 +69,14 @@ http://www.tooplate.com/view/2082-pure-mix
               <div class="brand">
                 <a href="index.html">Pure Mix</a>
               </div>
-
+              
+				
               <div class="navicon">
+               <div class="navicon">
+               <button class="" onclick = "location.href = 'login.jsp' ">
+               <mytag:login/>
+               </button>
+              </div>
                 <div class="menu-container">
 
                   <div class="circle dark inline">
@@ -82,11 +88,10 @@ http://www.tooplate.com/view/2082-pure-mix
                     <div class="intro-inner">
                       <ul id="nav-menu">
                         <li><a href="main.jsp">Home</a></li>
-                        <li><a href="login.jsp"><mytag:login/></a></li>
                         <li><a href="about.html">About</a></li>
                         <li><a href="board.jsp">Board</a></li>
                         <li><a href="contact.html">Contact</a></li>
-                        <li><a href="table.html">Contact Msg</a></li>
+                        <li><a href="table.html"><mytag:contactMsg /></a></li>
                       </ul>
                     </div>
                   </div>
