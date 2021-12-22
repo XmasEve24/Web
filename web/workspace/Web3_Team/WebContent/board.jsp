@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="mytag" %>    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -78,10 +80,11 @@ http://www.tooplate.com/view/2082-pure-mix
                     <i class="icon ion-close-round close-iframe"></i>
                     <div class="intro-inner">
                      	<ul id="nav-menu">
-                         <li><a href="index.html">Home</a></li>
-                       	 <li><a href="about.html">About</a></li>
-                       	 <li><a href="blog.html">Blog</a></li>
-                       	 <li><a href="contact.html">Contact</a></li>
+                         <li><a href="main.jsp">Home</a></li>
+                        <li><a href="about.jsp">About</a></li>
+                        <li><a href="board.jsp">Board</a></li>
+                        <li><a href="contact.jsp">Contact</a></li>
+                        <li><a href="table.html"><mytag:contactMsg /></a></li>
                       </ul>
                     </div>
                   </div>

@@ -73,9 +73,7 @@ http://www.tooplate.com/view/2082-pure-mix
 				
               <div class="navicon">
                <div class="navicon">
-               <button class="" onclick = "location.href = 'login.jsp' ">
                <mytag:login/>
-               </button>
               </div>
                 <div class="menu-container">
 
@@ -88,9 +86,9 @@ http://www.tooplate.com/view/2082-pure-mix
                     <div class="intro-inner">
                       <ul id="nav-menu">
                         <li><a href="main.jsp">Home</a></li>
-                        <li><a href="about.html">About</a></li>
+                        <li><a href="about.jsp">About</a></li>
                         <li><a href="board.jsp">Board</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="contact.jsp">Contact</a></li>
                         <li><a href="table.html"><mytag:contactMsg /></a></li>
                       </ul>
                     </div>

@@ -26,29 +26,29 @@
 				<div class="col-md-7 col-lg-5">
 					<div class="login-wrap p-4 p-md-5">
 		      	<h3 class="text-center mb-4">Create Your Account</h3>
-						<form action="#" class="signup-form">
+						<form action="signup.do" method="post" class="signup-form">
 		      		<div class="form-group mb-3">
 		      			<label class="label" for="name">Full Name</label>
-		      			<input type="text" class="form-control" placeholder="Name">
+		      			<input type="text" class="form-control" name="memberName" placeholder="Name">
 		      		</div>
 		      		<div class="form-group mb-3">
 		      			<label class="label" for="email">Email Address</label>
-		      			<input type="text" class="form-control" placeholder="Email">
+		      			<input type="text" class="form-control" name="memberEmail" placeholder="Email">
 		      		</div>
 		      		<div class="form-group mb-3">
 		      			<label class="label" for="id">ID</label>
-		      			<input type="text" class="form-control" placeholder="ID">
+		      			<input type="text" class="form-control" name="memberID" placeholder="ID">
 		      		</div>
 	            <div class="form-group mb-3">
 	            	<label class="label" for="password">Password</label>
-	              <input id="password-field" type="password" class="form-control" placeholder="Password">
+	              <input id="password-field" type="password" class="form-control" name="memberPw" placeholder="Password">
 	              <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
 	            </div>
 	            <div class="form-group">
 	            	<button type="submit" class="form-control btn btn-primary submit px-3">Sign Up</button>
 	            </div>
 	          </form>
-	          <p>I'm already a member! <a data-toggle="tab" href="#signin">Sign In</a></p>
+	          <p>I'm already a member! <a href="login.jsp">Sign In</a></p>
 	        </div>
 				</div>
 			</div>

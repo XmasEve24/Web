@@ -9,6 +9,17 @@ create table board_S(
 	cnt int default 0
 );
 
-select * from board_S;
+select * from member_S;
 
 drop table board_S;
+
+create table member_S(
+	mid varchar(10) primary key,
+	password varchar(10),
+	name varchar(10),
+	role varchar(10)
+);
+
+insert into member_S values('ko','1234','¿Ã¡Ó','USER');
+
+
