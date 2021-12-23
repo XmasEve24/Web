@@ -90,6 +90,7 @@ http://www.tooplate.com/view/2082-pure-mix
                         <li><a href="board.jsp">Board</a></li>
                         <li><a href="contact.jsp">Contact</a></li>
                         <li><a href="table.html"><mytag:contactMsg /></a></li>
+                        <li><a href="write.jsp"><mytag:writePortfolio /></a></li>
                       </ul>
                     </div>
                   </div>

@@ -1,0 +1,38 @@
+insertBoard_C.jsp
+ -> 1. 사용자가 입력한 정보들을 추출
+ -> 2. VO setter
+ -> 3. DAO 비즈니스 메서드 수행
+ -> 4. main.jsp
+
+DispatcherServlet == FrontController
+    @Autowired
+ -> 핸들러매핑클래스객체
+
+	new->.xml OR @
+
+HandlerMapping 클래스
+Mapper가 존재함
+String -> controller객체 
+
+Controller 인터페이스
+
+각각의 Controller 클래스 implements Controller
+
+ViewResolver가 처리완료된 요청들을 맞는 View로 이동시킴
+
+
+=> C 인터페이스
+C 클래스 implements C
+HM
+VR
+
+### 클라이언트 요청
+-> DS(*.do) -> HM: C검색 -> 요청처리 -> VR -> V도착!
+
+
+
+
+
+
+
+

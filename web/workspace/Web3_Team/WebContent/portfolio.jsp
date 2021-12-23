@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib tagdir="/WEB-INF/tags" prefix="mytag" %>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="mytag" %>    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +20,7 @@ http://www.tooplate.com/view/2082-pure-mix
 
 	<!-- Site title
    ================================================== -->
-	<title>Pure Mix - Contact</title>
+	<title>Pure Mix - Single Post</title>
 
 	<!-- Bootstrap CSS
    ================================================== -->
@@ -66,7 +66,7 @@ http://www.tooplate.com/view/2082-pure-mix
             <div class="row">
 
               <div class="brand">
-                <a href="index.html">Pure Mix</a>
+                <a href="main.jsp">Pure Mix</a>
               </div>
 
               <div class="navicon">
@@ -99,18 +99,17 @@ http://www.tooplate.com/view/2082-pure-mix
    </nav>
 </div>
 
-
 <!-- Header section
 ================================================== -->
-<section id="header" class="header-four">
+<section id="header" class="header-five">
 	<div class="container">
 		<div class="row">
 
 			<div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8">
-            	<div class="header-thumb">
-              		 <h1 class="wow fadeIn" data-wow-delay="0.6s">Contact Us</h1>
-              		 <h3 class="wow fadeInUp" data-wow-delay="0.9s">Vestibulum at aliquam lorem</h3>
-           		</div>
+          <div class="header-thumb">
+              <h1 class="wow fadeIn" data-wow-delay="0.6s">Single Blog post</h1>
+              <h3 class="wow fadeInUp" data-wow-delay="0.9s">Vestibulum at aliquam lorem</h3>
+          </div>
 			</div>
 
 		</div>
@@ -118,77 +117,59 @@ http://www.tooplate.com/view/2082-pure-mix
 </section>
 
 
-<!-- Contact section
+<!-- Single Post section
 ================================================== -->
-<section id="contact">
+<section id="single-post">
    <div class="container">
       <div class="row">
 
-         <div class="wow fadeInUp col-md-6 col-sm-12" data-wow-delay="1.3s">
-         	<div class="google_map">
-				<div id="map-canvas"></div>
-			</div>
-		</div>
+         <div class="wow fadeInUp col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10" data-wow-delay="2.3s">
+         	  <div class="blog-thumb">
+         		   
+         		   <h1>${data.portTitle}</h1>
+         			    <div class="post-format">
+						        <span><i class="fa fa-date"></i><!-- 날짜 --></span>
+					       </div>
+         		   <p>${data.portContent}</p>
+               <blockquote></blockquote>
+               
+               <img src="images/blog-img1.jpg" class="img-responsive post-image" alt="Blog">
+               
+               
 
-		<div class="wow fadeInUp col-md-6 col-sm-12" data-wow-delay="1.6s">
-			<h1>Let's work together!</h1>
-			<div class="contact-form">
-				<form id="contact-form" method="post" action="#">
-					<input name="portNum" type="text" class="">
-					<input name="memberNum" type="text" class="form-control">
-					<input name="name" type="text" class="form-control" placeholder="Your Name" required>
-					<input name="email" type="email" class="form-control" placeholder="Your Email" required>
-					<textarea name="message" class="form-control" placeholder="Message" rows="4" required></textarea>
-					<div class="contact-submit">
-						<input type="submit" class="form-control submit" value="Send a message">
-					</div>
-				</form>
-			</div>
-		</div>
+               <div class="blog-comment">
+                 <h3>Comments</h3>
+                    <div class="media">
+                        <div class="media-object pull-left">
+                            <img src="images/comment2.jpg" class="img-responsive" alt="blog">
+                       </div>
+                      <div class="media-body">
+                      <c:forEach var="vv" items="${v.rdatas}">
+                        <h4 class="media-heading">${vv.memberId}</h4>
+                        <h5><!-- 날짜 --></h5>
+                        <p>${vv.comment}</p>
+                        </c:forEach>
+                      </div>
+                    </div>
+               </div>
 
-		<div class="clearfix"></div>
-
-			<div class="col-md-4 col-sm-4">
-				<div class="wow fadeInUp media" data-wow-delay="0.3s">
-					<div class="media-object pull-left">
-						<i class="fa fa-tablet"></i>
-					</div>
-					<div class="media-body">
-						<h3 class="media-heading">Phone</h3>
-						<p>+99 00 8877 6655</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-md-4 col-sm-4">
-				<div class="wow fadeInUp media" data-wow-delay="0.6s">
-					<div class="media-object pull-left">
-						<i class="fa fa-envelope"></i>
-					</div>
-					<div class="media-body">
-						<h3 class="media-heading">Email</h3>
-						<p>hello@company.com</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-md-4 col-sm-4">
-				<div class="wow fadeInUp media" data-wow-delay="0.9s">
-					<div class="media-object pull-left">
-						<i class="fa fa-globe"></i>
-					</div>
-					<div class="media-body">
-						<h3 class="media-heading">Address</h3>
-						<p>123 New Street, Old Town<br>
-                        Another Village, 11220</p>
-					</div>
-				</div>
-			</div>
+               <div class="blog-comment-form">
+                  <h3>Leave a comment</h3>
+                    <form action="portfolio_insert.do" method="post">
+                      <input type="text" class="form-control" placeholder="Name" name="memberId" required>
+                      <input type="email" class="form-control" placeholder="Email" name="memberEmail" required>
+                      <textarea class="form-control" placeholder="Comment" rows="5" name"Your Comments" required id="comment" name="comment"></textarea>
+                      <div class="contact-submit">
+                      	<input name="submit" type="submit" class="form-control" id="submit" value="Submit a comment">
+                      </div>
+                   </form>
+               </div>
+         	  </div>
+		    </div>
 
       </div>
    </div>
 </section>
-
 
 <!-- Footer section
 ================================================== -->

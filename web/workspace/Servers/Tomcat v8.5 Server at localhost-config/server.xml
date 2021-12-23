@@ -153,7 +153,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="day16" path="/day16" reloadable="true" source="org.eclipse.jst.jee.server:day16"/><Context docBase="test1" path="/test1" reloadable="true" source="org.eclipse.jst.jee.server:test1"/><Context docBase="Project1" path="/Project1" reloadable="true" source="org.eclipse.jst.jee.server:Project1"/><Context docBase="day10" path="/day10" reloadable="true" source="org.eclipse.jst.jee.server:day10"/><Context docBase="Web3_Team" path="/Web3_Team" reloadable="true" source="org.eclipse.jst.jee.server:Web3_Team"/></Host>
+      <Context docBase="day16" path="/day16" reloadable="true" source="org.eclipse.jst.jee.server:day16"/><Context docBase="test1" path="/test1" reloadable="true" source="org.eclipse.jst.jee.server:test1"/><Context docBase="Project1" path="/Project1" reloadable="true" source="org.eclipse.jst.jee.server:Project1"/><Context docBase="day10" path="/day10" reloadable="true" source="org.eclipse.jst.jee.server:day10"/><Context docBase="Web3_Team" path="/Web3_Team" reloadable="true" source="org.eclipse.jst.jee.server:Web3_Team"/><Context docBase="S_day4" path="/app" reloadable="true" source="org.eclipse.jst.jee.server:S_day4"/></Host>
     </Engine>
   </Service>
 </Server>

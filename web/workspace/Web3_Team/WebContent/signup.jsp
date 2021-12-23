@@ -37,7 +37,7 @@
 		      		</div>
 		      		<div class="form-group mb-3">
 		      			<label class="label" for="id">ID</label>
-		      			<input type="text" class="form-control" name="memberID" placeholder="ID">
+		      			<input type="text" class="form-control" name="memberId" placeholder="ID">
 		      		</div>
 	            <div class="form-group mb-3">
 	            	<label class="label" for="password">Password</label>

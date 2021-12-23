@@ -133,7 +133,7 @@ http://www.tooplate.com/view/2082-pure-mix
 						        <span><i class="fa fa-date"></i> 5 June 2016, Sunday</span>
 					       </div>
          		     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet. Dolore magna aliquam erat volutpat sit amet, consectetuer adipiscing elit, sed diam nonumm.</p>
-         		     <a href="single-post.html" class="btn btn-default">Full Article</a>
+         		     <a href="portfolio.jsp" class="btn btn-default">Full Article</a>
          	    </div>
 		    </div>
 

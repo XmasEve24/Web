@@ -3,8 +3,8 @@
 
 <c:choose>
    <c:when test="${adminid != null }">
-      <form method="post" action="contact.do">
-      contact msg
+      <form method="post" action="write.do">
+      write
       </form>
    </c:when>
   
