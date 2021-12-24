@@ -66,7 +66,7 @@ http://www.tooplate.com/view/2082-pure-mix
             <div class="row">
 
               <div class="brand">
-                <a href="index.html">Pure Mix</a>
+                <a href="main.jsp">Pure Mix</a>
               </div>
 
               <div class="navicon">

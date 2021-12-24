@@ -6,6 +6,7 @@ create table admin(
     adminEmail varchar(30) not null
 );
 
+select * from admin;
 create table member(
     memberNum int primary key ,
     memberName varchar(20) not null,
@@ -14,9 +15,6 @@ create table member(
     memberEmail varchar(30) not null
 );
 
-create table portfolio(
-    
-);
 
 create table portfolio(
 	portNum int primary key, 

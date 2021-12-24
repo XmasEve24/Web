@@ -16,7 +16,15 @@ import com.test.app.member.impl.MemberDAO;
  */
 public class DispatcherServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    private HandlerMapping handlerMapping;
+    private ViewResolver viewResolver;
+    
+    public void init() {
+    	handlerMapping = new HandlerMapping();
+    	viewResolver = new ViewResolver();
+    	viewResolver.setPrefix("./");
+    	viewResolver.setSuffix(".jsp");
+    }
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -43,50 +51,14 @@ public class DispatcherServlet extends HttpServlet {
 		String uri=request.getRequestURI();
 		String action=uri.substring(uri.lastIndexOf("/"));
 		System.out.println(action);
-		if(action.equals("/login.do")) {
-			MemberVO vo=new MemberVO();
-			vo.setMid(request.getParameter("mid"));
-			vo.setPassword(request.getParameter("password"));
-			MemberDAO dao=new MemberDAO();
-			MemberVO data=dao.selectOne(vo);
-			if(data!=null) {
-				// 세션에 정보 저장
-				response.sendRedirect("main.jsp");
-			}
-			else {
-				response.sendRedirect("login.jsp");
-			}
-			// 1. request.getParameter()
-			// 사용자가 입력한 정보들을 추출
-			
-			// 2. VO setter
-			
-			// 3. DAO
-			// 비즈니스 메서드 수행
-			
-			// 4. View를 지정
-			// 로그인성공시, main.jsp
-			// 로그인실패시, login.jsp
+		
+		Controller ctrl = handlerMapping.getController(action);
+		String viewName = ctrl.handlerRequest(request, response);
+		
+		if(!viewName.contains(".do")) {
+			viewName = viewResolver.getView(viewName);
 		}
-		else if(action.equals("/logout.do")) {
-			HttpSession session=request.getSession();
-			session.invalidate();
-			response.sendRedirect("login.jsp");
-		}
-		else if(action.equals("/insertBoard.do")) {
-			
-		}
-		else if(action.equals("/updateBoard.do")) {
-			
-		}
-		else if(action.equals("/deleteBoard.do")) {
-			
-		}
-		else if(action.equals("/main.do")) {
-			
-		}
-		else if(action.equals("/board.do")) {
-			
-		}
+		
+		response.sendRedirect(viewName);
 	}
 }

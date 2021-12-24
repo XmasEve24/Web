@@ -1,0 +1,11 @@
+1. Controller 작성
+ - Logout
+ - Main
+ - Board
+
+2. (Controller 등록)
+ -> HandlerMapping
+
+3. View파트
+ - .do로 요청
+ - JSTL추가 (dependancy추가)

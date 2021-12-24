@@ -66,7 +66,7 @@ http://www.tooplate.com/view/2082-pure-mix
             <div class="row">
 
               <div class="brand">
-                <a href="index.html">Pure Mix</a>
+                <a href="main.jsp">Pure Mix</a>
               </div>
 
               <div class="navicon">
@@ -126,8 +126,8 @@ http://www.tooplate.com/view/2082-pure-mix
 
          <div class="wow fadeInUp col-md-6 col-sm-6" data-wow-delay="1s">
          	  <div class="blog-thumb">
-         		   <a href="single-post.html"><img src="images/blog-img1.jpg" class="img-responsive" alt="Blog"></a>
-         		   <a href="single-post.html"><h1>Flying the Clouds</h1></a>
+         		   <a href="portfolio.jsp"><img src="images/blog-img1.jpg" class="img-responsive" alt="Blog"></a>
+         		   <a href="portfolio.jsp"><h1>Flying the Clouds</h1></a>
          		     <div class="post-format">
 						        <span>By <a href="#">Frank Wang</a></span>
 						        <span><i class="fa fa-date"></i> 5 June 2016, Sunday</span>

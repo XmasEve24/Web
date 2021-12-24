@@ -66,7 +66,7 @@ http://www.tooplate.com/view/2082-pure-mix
             <div class="row">
 
               <div class="brand">
-                <a href="index.html">Pure Mix</a>
+                <a href="main.jsp">Pure Mix</a>
               </div>
 
               <div class="navicon">
@@ -133,10 +133,15 @@ http://www.tooplate.com/view/2082-pure-mix
 		<div class="wow fadeInUp col-md-6 col-sm-12" data-wow-delay="1.6s">
 			<h1>Let's work together!</h1>
 			<div class="contact-form">
-				<form id="contact-form" method="post" action="#">
-					<input name="portNum" type="text" class="">
-					<input name="memberNum" type="text" class="form-control">
-					<input name="name" type="text" class="form-control" placeholder="Your Name" required>
+				<form id="contact-form" method="post" action="contact_insert.do">
+					<select name="contactType" id="contact-form">
+						<option value="">문의유형을 선택해주세요</option>
+						<option value="">2</option>
+						<option value="">3</option>
+						<option value="">4</option>
+					</select>
+					<input name="portNum" type="text" class="form-control" placeholder="Portfolio Number" required>
+					<input name="memberNum" type="text" class="form-control" placeholder="MemberNumber" required>
 					<input name="email" type="email" class="form-control" placeholder="Your Email" required>
 					<textarea name="message" class="form-control" placeholder="Message" rows="4" required></textarea>
 					<div class="contact-submit">
