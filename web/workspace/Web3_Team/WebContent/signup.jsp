@@ -29,6 +29,33 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" href="css/animate.min.css">
+<script src = "js/jquery-3.6.0.min.js"></script>
+<script>
+$('.input100').focusout(function(){
+	 let userId = $('.input100').val();
+	 
+	 $.ajax({
+		 url : "IdCheckService",
+		 type : "post",
+		 data : {memberId: memberId},
+		 dataType : 'json',
+		 success : function(result){
+			 	if(result == 0){
+			 			$("#checkId").html('사용할 수 없는 아이디입니다.');
+			 			$("#checkId").attr('color','red');
+			 	}else {
+			 			$("#checkId").html('사용할 수 있는 아이디입니다.');
+		 				$("#checkId").attr('color','green');
+			 	}
+		 },
+		 error : fuction(){
+		 }
+		 
+		 
+	 })
+	 
+})
+</script>
 </head>
 <body>
 	
@@ -61,6 +88,7 @@
 					</span>
 					<div class="wrap-input100 validate-input m-b-36" data-validate = "ID is required">
 						<input class="input100" type="text" name="memberId" >
+						<font id="checkID" size="2"></font>
 						<span class="focus-input100"></span>
 					</div>
 					
@@ -71,9 +99,22 @@
 						<span class="btn-show-pass">
 							<i class="fa fa-eye"></i>
 						</span>
-						<input class="input100" type="password" name="memberPw" >
+						<input class="input100" type="password" name="memberPw" id="memberPw">
 						<span class="focus-input100"></span>
 					</div>
+					
+					<span class="txt1 p-b-11">
+						Password check
+					</span>
+					<div class="wrap-input100 validate-input m-b-12" data-validate = "Password is required">
+						<span class="btn-show-pass">
+							<i class="fa fa-eye"></i>
+						</span>
+						<input class="input100" type="password" name="memberPwCheck" id="memberPwCheck"  >
+						<span class="focus-input100"></span>
+
+					</div>
+						<font name="check" size="2" color="red"></font>
 					
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" type="submit" formaction="signup.do">
@@ -95,6 +136,9 @@
 	
 <!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="js/jquery_pw.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	
 <!--===============================================================================================-->
 	<script src="vendor/animsition/js/animsition.min.js"></script>
 <!--===============================================================================================-->

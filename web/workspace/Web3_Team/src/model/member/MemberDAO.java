@@ -14,8 +14,9 @@ public class MemberDAO {
 	ResultSet rs;
 	
 	String sql_memberJoin="insert into member(memberNum, memberName, memberId, memberPw, memberEmail) values(?,?,?,?)";
-	String sql_login="select * from member where memberId=? and memberPw=?";
-	
+	String sql_login="select * from member where memberId=?";
+	String sql_checkId="select * from member where memeberId=?";
+
 	JNDI JNDIUtil = new JNDI();
 	
 	public boolean memberJoin(MemberVO vo) {
@@ -35,23 +36,47 @@ public class MemberDAO {
 		return true;
 	}
 	
-	public boolean login(MemberVO vo) {
+	public boolean memberLogin(MemberVO vo) {
 		conn=JNDIUtil.connect();
 		try {
 			pstmt=conn.prepareStatement(sql_login);
 			pstmt.setString(1, vo.getMemberId());
 			rs=pstmt.executeQuery();
 			if(rs.next()){
+				vo.setMemberEmail(rs.getString("memberEmail"));
+				vo.setMemberName(rs.getString("memberName"));
+				vo.setMemberId(rs.getString("memberId"));
 				if(rs.getString("memberPw").equals(vo.getMemberPw())) {
+					vo.setMemberPw(rs.getString("memberPw"));
 					return true;
 				}
 			}
 		} catch (SQLException e) {
-			System.out.println("MemberDAO login method error");
+			System.out.println("MemberDAO memberLogin method error");
 			e.printStackTrace();
 			return false;
 		} 
 		return false;
+	}
+
+	public int checkId(String id) {
+		conn=JNDIUtil.connect();
+		int idCheck = 0;
+		try {
+			pstmt=conn.prepareStatement(sql_checkId);
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if(rs.next() || id.equals("")) {
+				idCheck = 0;
+			}
+			else {
+				idCheck = 1;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		return idCheck;
 	}
 	
 }

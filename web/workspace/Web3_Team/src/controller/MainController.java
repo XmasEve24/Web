@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import controller.action.Action;
-import controller.action.LoginAction;
+import controller.action.AdminLoginAction;
+import controller.action.LogoutAction;
 import controller.action.MainAction;
+import controller.action.MemberLoginAction;
 
 /**
  * Servlet implementation class FrontController
@@ -54,9 +56,32 @@ public class MainController extends HttpServlet {
 				
 		if(command.equals("/main.do")) {		
 			actionSet = new MainAction();
+			System.out.println("메인");
 		}
 		else if(command.equals("/login.do")) {		
-			actionSet = new LoginAction();
+			// 관리자로그인과 회원로그인을 구별하기 위한 boolean타입 flag 설정			
+			AdminLoginAction LoginDistinction = new AdminLoginAction();
+			
+			try {
+				info = LoginDistinction.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+			if(LoginDistinction.isFlag() == false) {
+				// 관리자 로그인으로 실패시, 회원로그인으로 진행한다. 
+				actionSet = new MemberLoginAction();
+				System.out.println("회원 로그인");
+			}
+			else {
+				actionSet = LoginDistinction;
+				System.out.println("관리자 로그인");
+			}		
+		} 
+		else if(command.equals("/logout.do")) {		
+			actionSet = new LogoutAction();
+			System.out.println("로그아웃");
 		} 
 		
 		//TODO
@@ -67,6 +92,7 @@ public class MainController extends HttpServlet {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.out.println("error in try catch");
 		}
 		
 		if(info != null) {

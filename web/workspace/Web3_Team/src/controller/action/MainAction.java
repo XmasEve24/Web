@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import controller.ActionInformation;
+import model.admin.AdminVO;
 
 public class MainAction implements Action{
 
@@ -13,7 +14,7 @@ public class MainAction implements Action{
 		ActionInformation info = new ActionInformation();
 		
 		info.setPath("main.jsp");
-		info.setRedirect(true);
+		info.setRedirect(false);
 		
 		return info;
 	}

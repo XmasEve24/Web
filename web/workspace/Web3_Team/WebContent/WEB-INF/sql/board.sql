@@ -5,8 +5,8 @@ create table admin(
     adminPw varchar(20) not null,
     adminEmail varchar(30) not null
 );
-
 select * from admin;
+
 create table member(
     memberNum int primary key ,
     memberName varchar(20) not null,
@@ -14,8 +14,8 @@ create table member(
     memberPw varchar(20) not null,
     memberEmail varchar(30) not null
 );
-
-
+select * from member;
+insert into member values('1','ko','eve','1234','pbi@naver.com');
 create table portfolio(
 	portNum int primary key, 
     adminNum  int foreign key,
@@ -24,7 +24,7 @@ create table portfolio(
     portTime DateTime,
     constraint admin_fk foreign key(adminNum) references admin(adminNum) on DELETE CASCADE 
 );
-
+select * from portfolio;
 
 create table reply(
     replyNum int primary key,
@@ -35,7 +35,7 @@ create table reply(
     replyTime DateTime
     constraint portfolio_fk foreign key(portNum) references portfolio(portNum) on DELETE CASCADE  
 );
-
+select * from reply;
 
 
 create table contact (
@@ -46,3 +46,4 @@ create table contact (
     contactContent varchar(250) not null,
     memberEmail varchar(30) not null
 );
+select * from contact;

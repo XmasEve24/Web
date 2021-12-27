@@ -1,0 +1,20 @@
+JSP 팀 프로젝트
+ MVC : MVC분리 철저히
+	.jsp(V) 자바코드, 객체명,...등을 제거
+	.java(DAO,VO:M) C에서 M-V결합하여 사용
+	controller.jsp -> 서블릿 클래스(*.do)==Frontcontroller
+		-> POJO(ActionForward,Action -> 다형성(설계),메서드오버라이딩 강제)
+ "페이지 전환" -> 아이디 중복검사 : jQuery .ajax()
+ 
+
+ Spring 개인 프로젝트 : DI(의존성 주입)==스프링 컨테이너의 개입
+
+
+DispatcherServlet 및 EncFilter
+ 스프링 프레임워크에서 기본제공하는 클래스로 변경
+ -> /WEB-INF/DispatcherServlet
+
+
+    <td><input type="password" name="wUserPWConfirm" id="pwCheck" onchange="isSame()" />&nbsp;&nbsp;<span id="same"></span></td>
+
+

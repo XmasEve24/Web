@@ -9,7 +9,7 @@ create table board_S(
 	cnt int default 0
 );
 
-select * from member_S;
+select * from board_S;
 
 drop table board_S;
 
