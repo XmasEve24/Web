@@ -18,9 +18,9 @@ public class BoardController implements Controller {
 		BoardDAO dao=new BoardDAO();
 		BoardVO data=dao.selectOne(vo);
 		
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("data", data);
-		mav.setViewName("board.jsp");
+		ModelAndView mav=new ModelAndView();
+		mav.addObject("data",data);
+		mav.setViewName("board");
 		return mav;
 	}
 

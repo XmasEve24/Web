@@ -6,7 +6,8 @@ create table admin(
     adminEmail varchar(30) not null
 );
 select * from admin;
-
+insert into admin values('1','ko','admin','1234','pbi@naver.com');
+insert into admin values('2','°ü¸®ÀÚ','aaa','1234','pbi@naver.com');
 create table member(
     memberNum int primary key ,
     memberName varchar(20) not null,

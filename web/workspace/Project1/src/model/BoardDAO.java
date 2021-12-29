@@ -30,12 +30,10 @@ public class BoardDAO {
 			ResultSet rs=pstmt.executeQuery();
 			while(rs.next()) {
 				BoardVO vo=new BoardVO();
-				
 				vo.setBid(rs.getInt("bid"));
 				vo.setContent(rs.getString("content"));
 				vo.setTitle(rs.getString("title"));
 				vo.setWriter(rs.getString("writer"));
-			
 				datas.add(vo);
 				System.out.println(vo);
 			}

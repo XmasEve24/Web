@@ -15,7 +15,6 @@ public class MemberDAO {
 	
 	String sql_memberJoin="insert into member(memberNum, memberName, memberId, memberPw, memberEmail) values(?,?,?,?)";
 	String sql_login="select * from member where memberId=?";
-	String sql_checkId="select * from member where memeberId=?";
 
 	JNDI JNDIUtil = new JNDI();
 	
@@ -59,24 +58,5 @@ public class MemberDAO {
 		return false;
 	}
 
-	public int checkId(String id) {
-		conn=JNDIUtil.connect();
-		int idCheck = 0;
-		try {
-			pstmt=conn.prepareStatement(sql_checkId);
-			pstmt.setString(1, id);
-			rs = pstmt.executeQuery();
-			if(rs.next() || id.equals("")) {
-				idCheck = 0;
-			}
-			else {
-				idCheck = 1;
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} 
-		return idCheck;
-	}
 	
 }

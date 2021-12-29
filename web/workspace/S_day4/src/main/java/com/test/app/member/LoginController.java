@@ -2,7 +2,6 @@ package com.test.app.member;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
@@ -19,13 +18,13 @@ public class LoginController implements Controller{
 		MemberDAO dao=new MemberDAO();
 		MemberVO data=dao.selectOne(vo);
 		
-		ModelAndView mav = new ModelAndView();
+		ModelAndView mav=new ModelAndView();
 		if(data!=null) {
 			mav.addObject("member", data);
-			mav.setViewName("main.do");
+			mav.setViewName("redirect:main.do");
 		}
 		else {
-			mav.setViewName("login.jsp");
+			mav.setViewName("redirect:index.jsp");
 		}
 		return mav;
 	}

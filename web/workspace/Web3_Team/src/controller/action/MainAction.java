@@ -10,7 +10,7 @@ public class MainAction implements Action{
 
 	@Override
 	public ActionInformation execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		// ì •ë³´ë¥¼ ë³´ì—¬ì£¼ëŠ” ì–´ë– í•œ í™”ë©´ì´ ì•„ë‹ˆê¸° ë•Œë¬¸ì— ë°ì´í„° ì´ë™ì´ ì—†ê³  í˜ì´ì§€ ì „í™˜ë§Œ í•´ì£¼ë©´ ëœë‹¤. 
+		// Á¤º¸¸¦ º¸¿©ÁÖ´Â ¾î¶°ÇÑ È­¸éÀÌ ¾Æ´Ï±â ¶§¹®¿¡ µ¥ÀÌÅÍ ÀÌµ¿ÀÌ ¾ø°í ÆäÀÌÁö ÀüÈ¯¸¸ ÇØÁÖ¸é µÈ´Ù. 
 		ActionInformation info = new ActionInformation();
 		
 		info.setPath("main.jsp");

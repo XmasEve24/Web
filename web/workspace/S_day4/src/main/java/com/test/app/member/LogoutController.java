@@ -7,7 +7,6 @@ import javax.servlet.http.HttpSession;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
-
 public class LogoutController implements Controller{
 
 	@Override
@@ -15,8 +14,10 @@ public class LogoutController implements Controller{
 		HttpSession session=request.getSession();
 		session.invalidate();
 		
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("login.jsp");
+		ModelAndView mav=new ModelAndView();
+		mav.setViewName("redirect:index.jsp");
+		// 1. 데이터 유지 및 전달
+		// 2. prefix, suffix  /WEB-INF/test/ .jsp
 		return mav;
 	}
 
