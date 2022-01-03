@@ -1,5 +1,6 @@
 package com.test.app.board.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +39,7 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public List<BoardVO> selectAll(BoardVO vo) {
 		// TODO Auto-generated method stub
-		return null;
+		return boardDAO.selectAll(vo);
 	}
 
 }
