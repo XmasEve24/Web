@@ -1,10 +1,15 @@
 package com.test.app.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.test.app.member.MemberVO;
+import com.test.app.member.impl.MemberDAO;
 
 /**
  * Servlet implementation class DispatcherServlet
@@ -35,6 +40,45 @@ public class DispatcherServlet extends HttpServlet {
 	}
 
 	private void doAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String uri=request.getRequestURI();
+		String action = uri.substring(uri.lastIndexOf("/"));
+		System.out.println(action);
+		
+		if(action.equals("/login.do")) {
+			MemberVO vo = new MemberVO();
+			vo.setMid(request.getParameter("mid"));
+			vo.setPassword(request.getParameter("password"));
+			MemberDAO dao = new MemberDAO();
+			MemberVO data = dao.selectOne(vo);
+			if(data!=null) {
+				response.sendRedirect("main.jsp");
+			}
+			else {
+				response.sendRedirect("login.jsp");
+			}
+			
+		}
+		else if(action.equals("/logout.do")) {
+			HttpSession session=request.getSession();
+			session.invalidate();
+			response.sendRedirect("login.jsp");
+					
+		}
+		else if(action.equals("/insertBoard.do")) {
+			
+		}
+		else if(action.equals("/updateBoard.do")) {
+			
+		}
+		else if(action.equals("/deleteBoard.do")) {
+			
+		}
+		else if(action.equals("/main.do")) {
+			
+		}
+		else if(action.equals("/board.do")) {
+			
+		}
 		
 	}
 }

@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<form action="login_C.jsp" method="post">
+<form action="login.do" method="post">
 	<table border="1">
 		<tr>
 			<td>아이디</td>
