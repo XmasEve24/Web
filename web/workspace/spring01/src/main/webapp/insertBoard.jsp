@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>글 작성 페이지</h1>
-<a href="main.jsp">메인 페이지로 이동하기</a>
+<a href="main.do">메인 페이지로 이동하기</a>
 <hr>
 <form action="insertBoard_C.jsp" method="post">
 	<table border="1">

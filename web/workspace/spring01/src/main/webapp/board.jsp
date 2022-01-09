@@ -13,7 +13,7 @@
 <body>
 
 <h1>상세 페이지</h1>
-<a href="main.jsp">메인 페이지로 이동하기</a>
+<a href="main.do">메인 페이지로 이동하기</a>
 <hr>
 <form action="updateBoard_C.jsp" method="post">
 	<table border="1">

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,11 +15,11 @@
 <body>
 
 <h1>게시글 목록</h1>
-<a href="logout_C.jsp">로그아웃</a>
+<a href="logout.do">로그아웃</a>
 
 <hr>
 
-<form action="main.jsp" method="post">
+<form action="main.do" method="post">
 	<table border="1">
 		<tr>
 			<td><select name="searchCondittion">

@@ -16,7 +16,16 @@ import com.test.app.member.impl.MemberDAO;
  */
 public class DispatcherServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    private HandlerMapping handlerMapping;
+    private ViewResolver viewResolver;
+    
+    public void init() {
+    	handlerMapping = new HandlerMapping();
+    	viewResolver = new ViewResolver();
+    	viewResolver.setPrefix("./");
+    	viewResolver.setSuffix(".jsp");
+    }
+    
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -44,41 +53,12 @@ public class DispatcherServlet extends HttpServlet {
 		String action = uri.substring(uri.lastIndexOf("/"));
 		System.out.println(action);
 		
-		if(action.equals("/login.do")) {
-			MemberVO vo = new MemberVO();
-			vo.setMid(request.getParameter("mid"));
-			vo.setPassword(request.getParameter("password"));
-			MemberDAO dao = new MemberDAO();
-			MemberVO data = dao.selectOne(vo);
-			if(data!=null) {
-				response.sendRedirect("main.jsp");
-			}
-			else {
-				response.sendRedirect("login.jsp");
-			}
-			
-		}
-		else if(action.equals("/logout.do")) {
-			HttpSession session=request.getSession();
-			session.invalidate();
-			response.sendRedirect("login.jsp");
-					
-		}
-		else if(action.equals("/insertBoard.do")) {
-			
-		}
-		else if(action.equals("/updateBoard.do")) {
-			
-		}
-		else if(action.equals("/deleteBoard.do")) {
-			
-		}
-		else if(action.equals("/main.do")) {
-			
-		}
-		else if(action.equals("/board.do")) {
-			
-		}
+		Controller ctrl = handlerMapping.getController(action);
+		String viewName = ctrl.handleRequest(request, response);
 		
+		if(!viewName.contains(".do")) {
+			viewName = viewResolver.getView(viewName);
+		}
+		response.sendRedirect(viewName);
 	}
 }
