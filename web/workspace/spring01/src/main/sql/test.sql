@@ -9,7 +9,7 @@ create table boardS(
 	cnt int default 0
 );
 
-select * from memberS;
+select * from boardS;
 
 create table memberS(
 	mid varchar(10) primary key,

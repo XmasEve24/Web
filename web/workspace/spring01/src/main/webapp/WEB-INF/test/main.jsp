@@ -1,17 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>메인 페이지</title>
 </head>
-<%
-	// 1. Model로부터(==DAO.selectAll()) 데이터를 받아오는 로직을 구현
-	// 2. request.set()을 통해 EL등으로 View표현가능하게 해야함
-%>
-
 <body>
 
 <h1>게시글 목록</h1>
@@ -20,18 +15,18 @@
 <hr>
 
 <form action="main.do" method="post">
-	<table border="1">
+	<table width="1000">
 		<tr>
-			<td><select name="searchCondittion">
+			<td><select name="searchCondition">
 				<option value="title">제목</option>
 				<option value="writer">작성자</option>
 			</select></td>
-			<td><input type="text" name="searchContent"></td>
-			<td><input type="submit" value="검색하기"></td>		
+			<td><input type="text" name="searchContent" /></td>
+			<td><input type="submit" value="검색하기" /></td>
 		</tr>
 	</table>
 </form>
-<table border="1">
+<table border="1" width="1000">
 	<tr>
 		<th>글 번호</th>
 		<th>글 제목</th>
@@ -39,11 +34,20 @@
 		<th>작성일</th>
 		<th>조회수</th>
 	</tr>
-	<!-- JSTL -->
-	<a href="board.jsp?bid=${v.bid}">${v.bid}</a>
+	<c:forEach var="v" items="${datas}">
+		<tr>
+			<td><a href="board.do?bid=${v.bid}">${v.bid}</a></td>
+			<td>${v.title}</td>
+			<td>${v.writer}</td>
+			<td>${v.bdate}</td>
+			<td>${v.cnt}</td>
+		</tr>
+	</c:forEach>
 </table>
+
 <hr>
 
 <a href="insertBoard.jsp">글 작성하기</a>
+
 </body>
 </html>

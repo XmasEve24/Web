@@ -4,21 +4,24 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.Controller;
+
 import com.test.app.board.impl.BoardDAO;
-import com.test.app.controller.Controller;
 
 public class BoardController implements Controller {
 
 	@Override
-	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
+	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) {
 		BoardVO vo=new BoardVO();
 		vo.setBid(Integer.parseInt(request.getParameter("bid")));
 		BoardDAO dao=new BoardDAO();
 		BoardVO data=dao.selectOne(vo);
 		
-		HttpSession session=request.getSession();
-		session.setAttribute("data", data);
-		return "board";
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("data", data);
+		mav.setViewName("board");
+		return mav;
 	}
 
 }
