@@ -15,6 +15,9 @@ public class BoardServiceImpl implements BoardService{
 	
 	@Override
 	public void insertBoard(BoardVO vo) {
+		/*if(vo.getWriter().equals("이즈")) {
+			throw new IllegalArgumentException("일부러 발생시킨 예외");
+		}*/
 		boardDAO.insertBoard(vo);
 	}
 

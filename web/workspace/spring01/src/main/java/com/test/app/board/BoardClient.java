@@ -18,7 +18,7 @@ public class BoardClient {
 		BoardVO vo = new BoardVO();
 		vo.setContent("작성한 내용");
 		vo.setTitle("글 제목");
-		vo.setWriter("티모");
+		vo.setWriter("이즈");
 		bs.insertBoard(vo); // c가 insert 비즈니스메서드를 수행
 		// -> 실질적으로는 dao가 해당 로직을 수행함
 		
